@@ -1,12 +1,14 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="shortcut icon" href="#">
 </head>
+
 <body>
     <form method="post" enctype="multipart/form-data" id="user-profile">
         {% csrf_token %}
@@ -16,28 +18,29 @@
         <input type="submit" value="submit">
 
     </form>
-    
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
 <script type="text/javascript">
-$(document).on('submit',"#user-profile",function(e){
-    e.preventDefault();
-    $.ajax({
-            type:'POST',
-            url:'/profile/',
-            data:{
-                username:$('#username').val(),
-                email:$('#email').val(),
-                image:$('#img').val(),
+    $(document).on('submit', "#user-profile", function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '/profile/',
+            data: {
+                username: $('#username').val(),
+                email: $('#email').val(),
+                image: $('#img').val(),
             },
-            success:function(){
+            success: function () {
                 alert('form submitted')
 
             }
         });
 
-});
+    });
 
 </script>
+
 </html>
